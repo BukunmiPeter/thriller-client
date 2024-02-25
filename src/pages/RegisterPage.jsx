@@ -22,8 +22,8 @@ export default function RegisterPage() {
         password:password
       }
 
-  await register(userData);
-       toast.success('Registration successful. Now you can log in');
+   await register(userData);
+       toast.success('Registration successful.Log in');
       setRedirect(true);
       }else{
          toast.error("Please fill all required fields.");
