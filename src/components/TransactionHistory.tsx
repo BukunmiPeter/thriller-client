@@ -30,6 +30,7 @@ useEffect(()=>{
 
   const columnHeads: Array<string> = [
   "ID",
+  "NAME",
   "AMOUNT($)",
   "TYPE",
   "DATE",
@@ -61,14 +62,20 @@ useEffect(()=>{
                 {item._id}
               </td>
 
-              <td className="whitespace-nowrap border-t-0 border-l-0 border-r-0 p-4 px-6 align-middle text-sm">
-                {item.amount}
+               <td className="whitespace-nowrap border-t-0 border-l-0 border-r-0 p-4 px-6 align-middle text-sm">
+
+                {item.type==="debit" ? item?.recipient?.name :item?.sender?.name }
               </td>
+
+              <td className="whitespace-nowrap border-t-0 border-l-0 border-r-0 p-4 px-6 align-middle text-sm">
+                {item?.amount}
+              </td>
+
               <td className="whitespace-nowrap border-t-0 border-l-0 border-r-0 p-4 px-6 align-middle text-sm">
               {item.type}
               </td>
               <td className="whitespace-nowrap border-t-0 border-l-0 border-r-0 p-4 px-6 align-middle text-sm">
-               {new Date(item.date).toLocaleString()}
+               {new Date(item?.date).toLocaleString()}
               </td>
             </tr>
           )): <tr> 

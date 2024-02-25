@@ -14,9 +14,18 @@ export interface ITransferData {
     fee:number
 }
 
+
+
+interface IRecipient {
+  id:string;
+  name:string;
+}
+
 export interface Transaction {
   _id: string;
   userId: string;
+  recipient:IRecipient;
+  sender:IRecipient;
   amount: number;
   type: 'debit' | 'credit';
   date: string;
