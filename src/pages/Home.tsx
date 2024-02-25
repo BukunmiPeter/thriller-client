@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 
 const Home: React.FC = () => {
       const { currentUser } = useSelector(selectUserState);
-      const [activeProfile, setActiveProfile]= useState(0)
+      const [activeProfile, setActiveProfile]= useState<number>(0)
   const dispatch = useDispatch();
    const HandleTransactions =async()=>{
         try{
@@ -41,8 +41,8 @@ const Home: React.FC = () => {
 </div>
         <div className=' flex flex-col w-2/4 justify-between md:flex-row  bg-white  rounded-xl px-2 py-2 mt-2 gap-2'  >
 
-            <div className='bg-green-700 px-2 py-2 rounded-lg flex-1  cursor-pointer' onClick={()=>setActiveProfile(0)}>Make Transfer</div>
-            <div className='bg-green-700 p-2 py-2 rounded-lg flex-1  cursor-pointer' onClick={handleTransactions}> Your Transaction History</div>
+            <div className={`${activeProfile===0? "bg-green-950":"bg-green-700"} px-2 py-2 rounded-lg flex-1  cursor-pointer`} onClick={()=>setActiveProfile(0)}>Make Transfer</div>
+            <div className={`${activeProfile===1? "bg-green-950":"bg-green-700"} px-2 py-2 rounded-lg flex-1  cursor-pointer`} onClick={handleTransactions}>Transaction History</div>
 
 
 
@@ -51,7 +51,7 @@ const Home: React.FC = () => {
 
 {
     activeProfile===0 ?
-        <p><MakeTransfer/></p>: <p><TransactionHistory/></p>
+        <p><MakeTransfer /></p>: <p><TransactionHistory/></p>
     
 }
 

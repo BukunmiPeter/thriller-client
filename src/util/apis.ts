@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { ITransferData, User } from "./types";
 
-const API = axios.create({ baseURL: "http://localhost:3001" });
+const API = axios.create({ baseURL: "https://thriller-server-3.onrender.com" });
 
 API.interceptors.response.use(
   (response) => response,

@@ -74,7 +74,7 @@ handleBalance()
 
 <div className='w- 1/4 flex flex-col gap-2 mb-3'>
 <label>Select Recipient</label>
-<select className='text-black py-2 px-2'
+<select className='text-black py-2 px-2 rounded-md'
     name=""
     id=""
                     value={recipient}
@@ -91,10 +91,10 @@ handleBalance()
 </div>
 <div className='w-1/4 '>
 <label>Type Amount</label>
-<input className='text-black py-2 px-2'     value={amount}
+<input className='text-black py-2 px-2 rounded-md'     value={amount}
                    onChange={(e) => setAmount(e.target.value)}  type="number"/></div>
 
-<div className='flex justify-end'><button className='bg-green-700 text-white p-2 rounded-md mt-4 ' onClick={HandleMakePayment}> {loading? "Loading": "Transfer"}</button></div>
+<div className='flex justify-end'><button className='bg-green-700 text-white px-4 py-2 rounded-md mt-4 ' onClick={HandleMakePayment}> {loading? "Loading": "Transfer"}</button></div>
 
 </div>
 

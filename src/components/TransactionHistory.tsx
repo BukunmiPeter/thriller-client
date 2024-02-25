@@ -3,6 +3,7 @@ import { getAllUsers, getUserTransactionHistory } from '../util/apis'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectUserState, setCurrentUser,setTransactionHistory  } from "../redux/userSlice";
+
   
 const TransactionHistory:React.FC = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ useEffect(()=>{
 
   const columnHeads: Array<string> = [
   "ID",
-  "AMOUNT",
+  "AMOUNT($)",
   "TYPE",
   "DATE",
 ];
