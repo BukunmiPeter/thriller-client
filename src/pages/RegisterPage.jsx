@@ -13,7 +13,8 @@ export default function RegisterPage() {
   async function registerUser(ev) {
     ev.preventDefault();
     try {
-      await axios.post('http://localhost:3001/users', {
+      if (firstName&& lastName&& email && password){
+    await axios.post('http://localhost:3001/users', {
         firstName,
         lastName,
         email,
@@ -21,6 +22,10 @@ export default function RegisterPage() {
       });
        toast.success('Registration successful. Now you can log in');
       setRedirect(true);
+      }else{
+         toast.error("Please fill all required fields.");
+      }
+  
     } catch (e) {
         toast.error("Registration failed. Please try again later");
       

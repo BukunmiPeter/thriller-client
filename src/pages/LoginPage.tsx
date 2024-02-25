@@ -21,7 +21,8 @@ export default function LoginPage() {
 
     ev.preventDefault();
     try {
-      const userData = {
+      if (email &&password){
+  const userData = {
         email:email,
         password:password
       }
@@ -32,6 +33,10 @@ export default function LoginPage() {
        dispatch(setBalance(currentUser?.balance))
          setRedirect(true);
        toast.success('Login successful');
+      }else{
+toast.error("Please fill all required fields.");
+      }
+    
      
     } catch (e) {
        toast.error("Login failed");
