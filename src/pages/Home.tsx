@@ -42,7 +42,7 @@ const Home: React.FC = () => {
         <div className=' flex flex-col w-2/4 justify-between md:flex-row  bg-white  rounded-xl px-2 py-2 mt-2 gap-2'  >
 
             <div className={`${activeProfile===0? "bg-green-950":"bg-green-700"} px-2 py-2 rounded-lg flex-1  cursor-pointer`} onClick={()=>setActiveProfile(0)}>Make Transfer</div>
-            <div className={`${activeProfile===1? "bg-green-950":"bg-green-700"} px-2 py-2 rounded-lg flex-1  cursor-pointer`} onClick={handleTransactions}>Transaction History</div>
+            <div className={`${activeProfile===1? "bg-green-950":"bg-green-700"} mt-2 md:mt-0 px-2 py-2 rounded-lg flex-1  cursor-pointer`} onClick={handleTransactions}>Transactions</div>
 
 
 
