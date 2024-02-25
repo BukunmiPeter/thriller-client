@@ -8,7 +8,6 @@ API.interceptors.response.use(
   (error: AxiosError) => {
     if (!error.response) {
       // Network error
-      
       alert('Something went wrong. Please try again later.');
     } else {
       alert('An error occurred. Please try again later.');
