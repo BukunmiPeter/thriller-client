@@ -41,7 +41,11 @@ handleBalance()
       const HandleMakePayment =async()=>{
         try{
         if (currentUser && amount && recipient){
-               setLoading(true)
+
+          if (balance && parseInt(amount)> balance){
+              toast.success('Insufficient Balance');
+          }else{
+                setLoading(true)
             const transferData = {
                 senderId:currentUser._id,
                 recipientId:recipient,
@@ -51,10 +55,13 @@ handleBalance()
             console.log(transferData, "transfer")
             await makeTransfer(transferData)
             await handleBalance()
-             toast.success('transfer successful');
+             toast.success('Transfer successful');
                setLoading(false)
                setRecipient("")
                setAmount("")
+
+          }
+           
         }
         else{
  toast.error('Please fill all required fields.');

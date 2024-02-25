@@ -12,8 +12,8 @@ const Welcome: React.FC = () => {
         <p>Keep in mind that every credit transaction incurs a configurable 10% fee. Enjoy the app's functionalities and don't forget to log out for added security once you've completed your transactions.</p>
         <p>Happy banking with Thrillers Mini Bank App!</p>
 
-        <p>Feel free to test the app using the login details for "Bon Great":</p>
-        <div className='flex flex-col gap-4'> <p>Email: bon@gmail.com</p>
+        <p>Feel free to test the app using the login details for "John Paul":</p>
+        <div className='flex flex-col gap-4'> <p>Email: john@gmail.com</p>
         <p>Password: 123456</p>
      <div>
   {currentUser? <Link className='text-rose-950' to={'/home'}>Go Home</Link>:<Link className='text-rose-950' to={'/login'}>Login</Link> }

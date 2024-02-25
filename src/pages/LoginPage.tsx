@@ -53,7 +53,7 @@ toast.error("Please fill all required fields.");
         <h1 className="text-4xl text-center mb-4">Login</h1>
         <form className="max-w-md mx-auto" onSubmit={handleLoginSubmit}>
           <input type="text"
-                 placeholder="your username"
+                 placeholder="your email"
                  value={email}
                  onChange={ev => setEmail(ev.target.value)} />
           <input type="password"
