@@ -2,6 +2,7 @@ import {Link, Navigate} from "react-router-dom";
 import {useState} from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { register } from "../util/apis";
 
 
 export default function RegisterPage() {
@@ -14,12 +15,14 @@ export default function RegisterPage() {
     ev.preventDefault();
     try {
       if (firstName&& lastName&& email && password){
-    await axios.post('http://localhost:3001/users', {
-        firstName,
-        lastName,
-        email,
-        password
-      });
+ const userData = {
+  firstName:firstName,
+  lastName:lastName,
+        email:email,
+        password:password
+      }
+
+  await register(userData);
        toast.success('Registration successful. Now you can log in');
       setRedirect(true);
       }else{
