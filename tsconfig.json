@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+     "types": ["react", "react-dom", "react-router-dom","@mui/material"],
     "target": "es5",
     "lib": [
       "dom",
