@@ -29,9 +29,14 @@ const MakeTransfer:React.FC = () => {
   }
 
         useEffect(()=>{
-        handleBalance()
+          try{
+handleBalance()
         handleGetUsers()
-    }, [])
+          } catch(error){
+            alert("Network error. Please check your internet connection.")
+          }
+        
+    }, [dispatch])
 
       const HandleMakePayment =async()=>{
         try{
