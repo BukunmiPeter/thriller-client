@@ -13,7 +13,7 @@ const Welcome: React.FC = () => {
         <p>Happy banking with Thrillers Mini Bank App!</p>
 
         <p>Feel free to test the app using the login details for "Bon Great":</p>
-        <div className='flex gap-4'> <p>Email: bon@gmail.com</p>
+        <div className='flex flex-col gap-4'> <p>Email: bon@gmail.com</p>
         <p>Password: 123456</p>
      <div>
   {currentUser? <Link className='text-rose-950' to={'/home'}>Go Home</Link>:<Link className='text-rose-950' to={'/login'}>Login</Link> }
