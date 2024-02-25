@@ -8,10 +8,9 @@ API.interceptors.response.use(
   (error: AxiosError) => {
     if (!error.response) {
       // Network error
-      console.error('Network error:', error.message);
-      alert('Network error. Please check your internet connection.');
+      
+      alert('Something went wrong. Please try again later.');
     } else {
-      console.error('Request error:', error.response.status, error.response.data);
       alert('An error occurred. Please try again later.');
     }
 
