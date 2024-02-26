@@ -37,7 +37,7 @@ const Home: React.FC = () => {
   return (
     <div className='w-full rounded-md mt-4 grow flex flex-col text-sm text-white bg-yellow-600 p-4'>
 <div className='flex items-center justify-center w-full'>
-    <p className='text-2xl font-extrabold  mb-10'>THRILLERS MINI BANK APP</p>
+    <p className='text-lg md:text-xl  font-extrabold  mb-10'>THRILLERS MINI BANK APP</p>
 </div>
         <div className=' flex flex-col w-2/4 justify-between md:flex-row  bg-white  rounded-xl px-2 py-2 mt-2 gap-2'  >
 
