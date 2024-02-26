@@ -5,16 +5,19 @@ import toast from "react-hot-toast";
 import { register } from "../util/apis";
 
 
+
 export default function RegisterPage() {
   const [firstName,setFirstName] = useState('');
   const [lastName,setLastName] = useState('');
     const [email,setEmail] = useState('');
+       const [loading, setLoading]=useState(false)
       const [password,setPassword] = useState('');
  const [redirect, setRedirect] = useState(false);
   async function registerUser(ev) {
     ev.preventDefault();
     try {
       if (firstName&& lastName&& email && password){
+         setLoading(true)
  const userData = {
   firstName:firstName,
   lastName:lastName,
@@ -25,11 +28,13 @@ export default function RegisterPage() {
    await register(userData);
        toast.success('Registration successful.Log in');
       setRedirect(true);
+       setLoading(false)
       }else{
          toast.error("Please fill all required fields.");
       }
   
     } catch (e) {
+       setLoading(false)
         toast.error("Registration failed. Please try again later");
       
     }
@@ -63,7 +68,7 @@ export default function RegisterPage() {
                  placeholder="password"
                  value={password}
                  onChange={ev => setPassword(ev.target.value)} />
-          <button className="primary">Register</button>
+          <button className="primary">{loading? "Loading...": "Register"}</button>
           <div className="text-center py-2 text-gray-500">
             Have an account? <Link className="underline text-black" to={'/login'}>Login</Link>
           </div>

@@ -101,7 +101,7 @@ handleBalance()
 <input className='text-black py-2 px-2 rounded-md'     value={amount}
                    onChange={(e) => setAmount(e.target.value)}  type="number"/></div>
 
-<div className='flex justify-end'><button className='bg-green-700 text-white px-4 py-2 rounded-md mt-4 ' onClick={HandleMakePayment}> {loading? "Loading": "Transfer"}</button></div>
+<div className='flex justify-end'><button className='bg-green-700 text-white px-4 py-2 rounded-md mt-4 ' onClick={HandleMakePayment}> {loading? "Loading...": "Transfer"}</button></div>
 
 </div>
 

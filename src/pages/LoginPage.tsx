@@ -13,6 +13,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
   const { currentUser } = useSelector(selectUserState);
+   const [loading, setLoading]=useState(false)
 
   const dispatch = useDispatch();
 
@@ -22,6 +23,7 @@ export default function LoginPage() {
     ev.preventDefault();
     try {
       if (email &&password){
+        setLoading(true)
   const userData = {
         email:email,
         password:password
@@ -32,6 +34,7 @@ export default function LoginPage() {
      
        dispatch(setBalance(currentUser?.balance))
          setRedirect(true);
+          setLoading(false)
        toast.success('Login successful');
       }else{
 toast.error("Please fill all required fields.");
@@ -39,6 +42,7 @@ toast.error("Please fill all required fields.");
     
      
     } catch (e) {
+      setLoading(false)
        toast.error("Login failed");
     }
   }
@@ -60,7 +64,7 @@ toast.error("Please fill all required fields.");
                  placeholder="password"
                  value={password}
                  onChange={ev => setPassword(ev.target.value)} />
-          <button className="primary">Login</button>
+          <button className="primary">{loading? "Loading...": "Login"}</button>
           <div className="text-center py-2 text-gray-500">
             Don't have an account yet? <Link className="underline text-black" to={'/register'}>Sign Up</Link>
           </div>
