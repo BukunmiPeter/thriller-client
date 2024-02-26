@@ -1,6 +1,5 @@
 import {Link, Navigate} from "react-router-dom";
 import {useState} from "react";
-import axios from "axios";
 import toast from "react-hot-toast";
 import { register } from "../util/apis";
 
@@ -33,12 +32,18 @@ export default function RegisterPage() {
          toast.error("Please fill all required fields.");
       }
   
-    } catch (e) {
-       setLoading(false)
-        toast.error("Registration failed. Please try again later");
-      
+    } catch (error) {
+    setLoading(false);
+    if (error.response) {
+      const { status, data } = error.response;
+      if (status === 409 && data.errorCode === 'EMAIL_EXISTS') {
+        toast.error('Email already exists. Please use a different email.');
+        return;
+      }
     }
+    toast.error('Login failed');
   }
+}
 
     if (redirect) {
     return <Navigate to={'/login'} />

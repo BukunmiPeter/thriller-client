@@ -41,8 +41,15 @@ toast.error("Please fill all required fields.");
       }
     
      
-    } catch (e) {
+    } catch (error:any) {
       setLoading(false)
+       if (error.response) {
+      const { status, data } = error.response;
+      if (status === 401 && data.errorCode === 'INVALID_CREDENTIALS') {
+        toast.error('Invalid email or password.');
+        return;
+      }
+    }
        toast.error("Login failed");
     }
   }
