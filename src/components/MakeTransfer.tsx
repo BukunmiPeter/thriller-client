@@ -8,7 +8,7 @@ import { getAllUsers, getUserBalance, makeTransfer } from '../util/apis';
 const MakeTransfer:React.FC = () => {
       const [recipient, setRecipient] = useState("")
       const [recipients, setRecipients] = useState([])
-      const [amount, setAmount]= useState("")
+      const [amount, setAmount]= useState<any>("")
       const [loading, setLoading]=useState(false)
       
   const dispatch = useDispatch();
@@ -27,6 +27,13 @@ const MakeTransfer:React.FC = () => {
     }
 
   }
+
+    const nonZeroPostiveInteger = (str:any) => {
+      let numStr = parseInt(str.replace(/[^0-9]/g, ''));
+      if (isNaN(numStr)) {
+         return  "";
+      } else return numStr;
+   };
 
         useEffect(()=>{
           try{
@@ -99,7 +106,7 @@ handleBalance()
 <div className='w-1/4 '>
 <label>Type Amount</label>
 <input className='text-black py-2 px-2 rounded-md'     value={amount}
-                   onChange={(e) => setAmount(e.target.value)}  type="number"/></div>
+                   onChange={(e) => setAmount(nonZeroPostiveInteger(e.target.value))}  type="number"/></div>
 
 <div className='flex justify-end'><button className='bg-green-700 text-white px-4 py-2 rounded-md mt-4 ' onClick={HandleMakePayment}> {loading? "Loading...": "Transfer"}</button></div>
 
